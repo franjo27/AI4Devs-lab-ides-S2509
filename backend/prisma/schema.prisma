@@ -18,3 +18,19 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Candidate {
+  id               Int       @id @default(autoincrement())
+  name             String
+  surname          String
+  email            String    @unique
+  phone            String
+  address          String
+  education        String
+  experience       String
+  cvFilePath       String?   @map("cv_file_path")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+
+  @@map("candidates")
+}
